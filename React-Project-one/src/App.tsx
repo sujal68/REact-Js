@@ -35,7 +35,7 @@ export default function App() {
         <div className="h-screen flex flex-col items-center justify-center bg-purple-950 relative">
 
             <div className="absolute top-6 right-6 bg-yellow-400 text-black px-6 py-2 rounded-lg font-bold shadow-lg">
-                💰 Balance ₹{balance}
+                Balance ₹{balance}
             </div>
 
             <ChestImage
