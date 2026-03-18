@@ -3,10 +3,23 @@ import { useState } from "react";
 export default function Form() {
 
     const [fName, setFName] = useState<string>("");
+    const [lName, setlName] = useState<string>("");
+    const [Email, setEmail] = useState<string>("");
+    const [Phone, setPhone] = useState<string>("");
+    const [Gander, setGander] = useState<string>("");
+    // const [Hobby, setHobby] = useState<string[]>([]);
+    const [Course, setCourse] = useState<string>("");
+    const [City, setCity] = useState<string>("");
 
     const studentFormSubmit = (event: any) => {
         event.preventDefault();
         console.log(fName)
+        console.log(lName)
+        console.log(Email)
+        console.log(Phone)
+        console.log(Gander)
+        console.log(Course)
+        console.log(City)
     }
 
     return (
@@ -32,7 +45,11 @@ export default function Form() {
                         <div>
                             <label className="text-sm text-gray-600">Last Name</label>
                             <input type="text" placeholder="Enter last name"
-                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                                value={lName}
+                                onChange={(event) => setlName(event.target.value)}
+                            />
+
                         </div>
                     </div>
 
@@ -40,13 +57,19 @@ export default function Form() {
                         <div>
                             <label className="text-sm text-gray-600">Email</label>
                             <input type="email" placeholder="Enter email"
-                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                                value={Email}
+                                onChange={(event) => setEmail(event.target.value)}
+                            />
                         </div>
 
                         <div>
                             <label className="text-sm text-gray-600">Phone</label>
                             <input type="text" placeholder="Enter phone"
-                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                                value={Phone}
+                                onChange={(event) => setPhone(event.target.value)}
+                            />
                         </div>
                     </div>
 
@@ -54,17 +77,20 @@ export default function Form() {
                         <label className="text-sm text-gray-600 block mb-2">Gender</label>
                         <div className="flex gap-6">
                             <label className="flex items-center gap-2">
-                                <input type="radio" name="gender" className="accent-blue-600" />
+                                <input type="radio" name="gender" className="accent-blue-600" value={Gander}
+                                    onChange={(event) => setGander(event.target.value)} />
                                 Male
                             </label>
 
                             <label className="flex items-center gap-2">
-                                <input type="radio" name="gender" className="accent-blue-600" />
+                                <input type="radio" name="gender" className="accent-blue-600" value={Gander}
+                                    onChange={(event) => setGander(event.target.value)} />
                                 Female
                             </label>
 
                             <label className="flex items-center gap-2">
-                                <input type="radio" name="gender" className="accent-blue-600" />
+                                <input type="radio" name="gender" className="accent-blue-600" value={Gander}
+                                    onChange={(event) => setGander(event.target.value)} />
                                 Other
                             </label>
                         </div>
@@ -99,13 +125,24 @@ export default function Form() {
                         <div>
                             <label className="text-sm text-gray-600">Course</label>
                             <input type="text" placeholder="Enter course"
-                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" value={Course}
+                                onChange={(event) => setCourse(event.target.value)} />
                         </div>
 
                         <div>
                             <label className="text-sm text-gray-600">City</label>
-                            <input type="text" placeholder="Enter city"
-                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" />
+
+                            <select
+                                className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                                value={City}
+                                onChange={(e) => setCity(e.target.value)}
+                            >
+                                <option value="">Select City</option>
+                                <option value="Surat">Surat</option>
+                                <option value="Rajkot">Rajkot</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Delhi">Delhi</option>
+                            </select>
                         </div>
                     </div>
 
