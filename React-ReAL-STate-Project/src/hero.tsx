@@ -1,20 +1,41 @@
-import logo from "./assets/hero-banner.jpg";
+import heroImg from "./assets/hero-banner.webp";
 
 export default function Hero() {
-    return <>
-        <div className="container mx-auto px-45 py-20 ">
-            <div className="flex">
-                <h1 className="text-7xl">Designing Spaces That Reflect Your Story</h1>
-                <div className="mt-17">
-                    <p className="text-lg leading-relaxed text-mist-500">Explore expertly crafted designs tailored to your unique taste.
-                        Whether modern, minimalist, or luxurious, we bring your
-                        vision to life with perfection.</p>
-                    <button className="bg-blue-300 text-black font-semibold px-6 py-3 mt-6 rounded-md hover:bg-blue-400 transition duration-300">GET A FREE CONSULTATION ➹</button>
+    return (
+        <div
+            className="h-screen w-full bg-cover bg-center relative"
+            style={{ backgroundImage: `url(${heroImg})` }}
+        >
+
+            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6">
+                <div className="max-w-2xl text-white">
+                    <p className="uppercase tracking-widest text-sm mb-4">
+                        • MODERN & TRUSTED
+                    </p>
+
+                    <h1 className="text-5xl md:text-6xl font-semibold leading-tight">
+                        Exclusive Modern <br /> Homes for Sale
+                    </h1>
+
+                    <p className="mt-6 text-gray-200 text-lg">
+                        Minimalist elegance crafted for comfort and style.
+                    </p>
+
+                    <button className="mt-8 flex items-center gap-3 bg-white text-black px-6 py-3 rounded-xl font-medium transition">
+                        <li className="relative h-6 overflow-hidden cursor-pointer group">
+                            <span className="block transition-transform duration-300 group-hover:-translate-y-full">
+                                Explore Properties
+                            </span>
+                            <span className="block absolute left-0 top-full transition-transform duration-300 group-hover:-translate-y-full">
+                                Explore Properties
+                            </span>
+                        </li>
+                        <span>→</span>
+                    </button>
+
                 </div>
             </div>
-            <div className="items-center mt-8">
-                <img src={logo} alt="Hero Banner" width={1500} className="rounded-2xl" />
-            </div>
         </div>
-    </>
+    );
 }

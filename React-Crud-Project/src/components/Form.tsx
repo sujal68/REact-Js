@@ -7,19 +7,60 @@ export default function Form() {
     const [Email, setEmail] = useState<string>("");
     const [Phone, setPhone] = useState<string>("");
     const [Gander, setGander] = useState<string>("");
-    // const [Hobby, setHobby] = useState<string[]>([]);
+    const [Hobby, setHobby] = useState<string[]>([]);
     const [Course, setCourse] = useState<string>("");
     const [City, setCity] = useState<string>("");
 
+
+    const allHobby = ["Coding", "Gaming", "Reading", "Sports", "Other"];
+    const allCity = ["Surat", "Gujarat", "Delhi", "Up", "Zarkhand", "Tamilnadu"];
+
     const studentFormSubmit = (event: any) => {
         event.preventDefault();
-        console.log(fName)
-        console.log(lName)
-        console.log(Email)
-        console.log(Phone)
-        console.log(Gander)
-        console.log(Course)
-        console.log(City)
+
+        // console.log(fName)
+        // console.log(lName)
+        // console.log(Email)
+        // console.log(Phone)
+        // console.log(Gander)
+        // console.log(Hobby)
+        // console.log(Course)
+        // console.log(City)
+
+        const studentData = {
+            fName,
+            lName,
+            Email,
+            Phone,
+            Gander,
+            Hobby,
+            Course,
+            City
+        }
+
+        console.log(studentData);
+        localStorage.setItem('StudentData', JSON.stringify(studentData));
+
+        setFName("");
+        setlName("");
+        setEmail("");
+        setPhone("");
+        setGander("");
+        setHobby([]);
+        setCourse("");
+        setCity("");
+
+    }
+
+    const getHobby = (event: any) => {
+        const data = event.target.value;
+        const isChecked = event.target.checked;
+
+        if (isChecked) {
+            setHobby(hobby => [...hobby, data]);
+        } else {
+            setHobby(hobby => hobby.filter((item) => item != data))
+        }
     }
 
     return (
@@ -77,19 +118,19 @@ export default function Form() {
                         <label className="text-sm text-gray-600 block mb-2">Gender</label>
                         <div className="flex gap-6">
                             <label className="flex items-center gap-2">
-                                <input type="radio" name="gender" className="accent-blue-600" value={Gander}
+                                <input type="radio" name="gender" className="accent-blue-600" value="Male"
                                     onChange={(event) => setGander(event.target.value)} />
                                 Male
                             </label>
 
                             <label className="flex items-center gap-2">
-                                <input type="radio" name="gender" className="accent-blue-600" value={Gander}
+                                <input type="radio" name="gender" className="accent-blue-600" value="Female"
                                     onChange={(event) => setGander(event.target.value)} />
                                 Female
                             </label>
 
                             <label className="flex items-center gap-2">
-                                <input type="radio" name="gender" className="accent-blue-600" value={Gander}
+                                <input type="radio" name="gender" className="accent-blue-600" value="Other"
                                     onChange={(event) => setGander(event.target.value)} />
                                 Other
                             </label>
@@ -99,25 +140,12 @@ export default function Form() {
                     <div>
                         <label className="text-sm text-gray-600 block mb-2">Hobbies</label>
                         <div className="flex flex-wrap gap-6">
-                            <label className="flex items-center gap-2">
-                                <input type="checkbox" className="accent-blue-600" />
-                                Coding
-                            </label>
-
-                            <label className="flex items-center gap-2">
-                                <input type="checkbox" className="accent-blue-600" />
-                                Gaming
-                            </label>
-
-                            <label className="flex items-center gap-2">
-                                <input type="checkbox" className="accent-blue-600" />
-                                Reading
-                            </label>
-
-                            <label className="flex items-center gap-2">
-                                <input type="checkbox" className="accent-blue-600" />
-                                Sports
-                            </label>
+                            {allHobby.map((hobby, index) => {
+                                return <label key={index} className="flex items-center gap-2">
+                                    <input type="checkbox" className="accent-blue-600" value={hobby} onChange={getHobby} />
+                                    {hobby}
+                                </label>
+                            })}
                         </div>
                     </div>
 
@@ -138,10 +166,11 @@ export default function Form() {
                                 onChange={(e) => setCity(e.target.value)}
                             >
                                 <option value="">Select City</option>
-                                <option value="Surat">Surat</option>
-                                <option value="Rajkot">Rajkot</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Delhi">Delhi</option>
+
+                                {allCity.map((City, index) => {
+                                    return <option key={index} value={City}>{City}</option>
+                                })}
+
                             </select>
                         </div>
                     </div>
