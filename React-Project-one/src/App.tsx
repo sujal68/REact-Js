@@ -43,7 +43,6 @@ export default function App() {
                 openImg={chest}
                 closeImg={close_chest}
             />
-
             <Reward money={money} />
 
             <div className="mt-8">

@@ -2,18 +2,7 @@ import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-type studentType = {
-    fName: string,
-    lName: string,
-    email: string,
-    phone: string,
-    gender: string,
-    hobby: string[],
-    course: string,
-    city: string
-};
-
-export default function Form() {
+export default function Form({ allStudents, setAllStudents }: any) {
     const [fName, setFName] = useState<string>("");
     const [lName, setlName] = useState<string>("");
     const [Email, setEmail] = useState<string>("");
@@ -24,9 +13,19 @@ export default function Form() {
     const [City, setCity] = useState<string>("");
 
     const [error, setError] = useState<any>({});
-    const [allStudents, setAllStudents] = useState<studentType[]>(
-        JSON.parse(localStorage.getItem('students') || "[]")
-    );
+    // const [allStudents, setAllStudents] = useState<studentType[]>(JSON.parse(localStorage.getItem('students') || "[]"));
+
+    type studentType = {
+        fName: string,
+        lName: string,
+        email: string,
+        phone: string,
+        gender: string,
+        hobby: string[],
+        course: string,
+        city: string
+    };
+
 
     const allHobby = ["Coding", "Gaming", "Reading", "Sports", "Other"];
     const allCity = ["Surat", "Gujarat", "Delhi", "Up", "Zarkhand", "Tamilnadu"];
@@ -37,6 +36,7 @@ export default function Form() {
 
     const validation = () => {
         let newError: any = {};
+
         if (!fName.trim()) {
             newError.fname = "First name is required";
         }
@@ -85,28 +85,40 @@ export default function Form() {
         if (!validation()) return;
 
         const studentData: studentType = {
-            fName, lName, email: Email, phone: Phone,
-            gender: Gander, hobby: Hobby, course: Course, city: City
+            fName,
+            lName,
+            email: Email,
+            phone: Phone,
+            gender: Gander,
+            hobby: Hobby,
+            course: Course,
+            city: City
         };
 
         setAllStudents(prev => [...prev, studentData]);
 
-        setFName(""); setlName(""); setEmail(""); setPhone("");
-        setGander(""); setHobby([]); setCourse(""); setCity("");
+        setFName("");
+        setlName("");
+        setEmail("");
+        setPhone("");
+        setGander("");
+        setHobby([]);
+        setCourse("");
+        setCity("");
         setError({});
 
-        toast.success("🚀 Student Registered Successfully!", {
-            position: "top-right",
-            autoClose: 3000,
-            theme: "colored"
-        });
+        toast.success("🚀 Student Registered Successfully!");
     };
 
-    const getHobby = (data: string, checked: boolean) => {
-        if (checked) {
-            setHobby(prev => [...prev, data]);
+    const getHobby = (event: any) => {
+
+        const data = event.target.value;
+        const isChecked = event.target.checked;
+
+        if (isChecked) {
+            setHobby(abc => [...abc, data]);
         } else {
-            setHobby(prev => prev.filter((item) => item !== data));
+            setHobby(hobby => hobby.filter((myHobby) => myHobby !== data));
         }
     };
 
@@ -191,7 +203,7 @@ export default function Form() {
                             <div className="flex gap-2 flex-wrap">
                                 {allHobby.map((h) => (
                                     <label key={h} className={`px-4 py-2 border-2 rounded-full cursor-pointer transition-all text-xs font-semibold ${Hobby.includes(h) ? 'bg-indigo-100 border-indigo-400 text-indigo-700' : 'bg-white border-gray-100 text-gray-500 hover:border-indigo-200'}`}>
-                                        <input type="checkbox" className="hidden" value={h} checked={Hobby.includes(h)} onChange={(e) => getHobby(h, e.target.checked)} />
+                                        <input type="checkbox" className="hidden" value={h} checked={Hobby.includes(h)} onChange={getHobby} />
                                         {h}
                                     </label>
                                 ))}

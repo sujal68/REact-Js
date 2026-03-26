@@ -1,23 +1,20 @@
 import { useEffect, useState } from "react";
 
-export default function Table() {
+export default function Table({ allStudents }: any) {
 
-    const [allStudents, setAllStudents] = useState<studentType[]>(JSON.parse(localStorage.getItem('students') || "[]"));
+    // const [allStudents, setAllStudents] = useState<studentType[]>(JSON.parse(localStorage.getItem('students') || "[]"));
 
-    type studentType = {
-        fName: string,
-        lName: string,
-        email: string,
-        phone: string,
-        gender: string,
-        hobby: string[],
-        course: string,
-        city: string
-    };
+    // type studentType = {
+    //     fName: string,
+    //     lName: string,
+    //     email: string,
+    //     phone: string,
+    //     gender: string,
+    //     hobby: string[],
+    //     course: string,
+    //     city: string
+    // };
 
-    useEffect(() => {
-        console.log("Table All Students : ", allStudents);
-    }, [])
 
     return (
         <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
