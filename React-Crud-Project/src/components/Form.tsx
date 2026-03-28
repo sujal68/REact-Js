@@ -13,7 +13,6 @@ export default function Form({ allStudents, setAllStudents }: any) {
     const [City, setCity] = useState<string>("");
 
     const [error, setError] = useState<any>({});
-    // const [allStudents, setAllStudents] = useState<studentType[]>(JSON.parse(localStorage.getItem('students') || "[]"));
 
     type studentType = {
         fName: string,
@@ -107,7 +106,7 @@ export default function Form({ allStudents, setAllStudents }: any) {
         setCity("");
         setError({});
 
-        toast.success("🚀 Student Registered Successfully!");
+        toast.success(" Student Registered Successfully!");
     };
 
     const getHobby = (event: any) => {
