@@ -2,19 +2,13 @@ import { useState, useEffect } from "react";
 import Form from "./components/Form";
 import Table from "./components/Table";
 import { toast } from "react-toastify";
+import type { studentType } from "./utils/global";
 
 export default function App() {
   const [allStudents, setAllStudents] = useState<studentType[]>(JSON.parse(localStorage.getItem('students') || "[]"));
-  type studentType = {
-    fName: string,
-    lName: string,
-    email: string,
-    phone: string,
-    gender: string,
-    hobby: string[],
-    course: string,
-    city: string
-  };
+
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [editStudent, setEditStudent] = useState<studentType>();
 
   useEffect(() => {
 
@@ -29,11 +23,16 @@ export default function App() {
     toast.success("Student deleted successfully..");
   }
 
+  const updateStudent = (index: number) => {
+    setEditIndex(index);
+
+    setEditStudent(allStudents[index]);
+  }
 
   return (
     <>
-      <Form allStudents={allStudents} setAllStudents={setAllStudents} />
-      <Table allStudents={allStudents} deleteStudent={deleteStudent} />
+      <Form allStudents={allStudents} setAllStudents={setAllStudents} editStudent={editStudent} editIndex={editIndex} setEditIndex={setEditIndex} />
+      <Table allStudents={allStudents} deleteStudent={deleteStudent} updateStudent={updateStudent} />
     </>
   );
 }

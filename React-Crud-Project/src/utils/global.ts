@@ -6,5 +6,5 @@ export type studentType = {
     gender: string,
     hobby: string[],
     city: string,
-    address: string
+    course: string
 };

@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import type { studentType } from "../utils/global";
 
-export default function Form({ allStudents, setAllStudents }: any) {
+type propsType = {
+    allStudents: studentType[];
+    setAllStudents: (value: React.SetStateAction<studentType[]>) => void;
+    editStudent: studentType | undefined;
+    editIndex: number | null;
+    setEditIndex: (value: React.SetStateAction<number | null>) => void;
+}
+
+export default function Form({ allStudents, setAllStudents, editStudent, editIndex, setEditIndex }: propsType) {
     const [fName, setFName] = useState<string>("");
     const [lName, setlName] = useState<string>("");
     const [Email, setEmail] = useState<string>("");
@@ -32,6 +41,19 @@ export default function Form({ allStudents, setAllStudents }: any) {
     useEffect(() => {
         localStorage.setItem("students", JSON.stringify(allStudents));
     }, [allStudents]);
+
+    useEffect(() => {
+        if (editStudent) {
+            setFName(editStudent.fName);
+            setlName(editStudent.lName);
+            setEmail(editStudent.email);
+            setPhone(editStudent.phone);
+            setGander(editStudent.gender);
+            setHobby(editStudent.hobby);
+            setCity(editStudent.city);
+            setCourse(editStudent.course);
+        }
+    }, [editStudent])
 
     const validation = () => {
         let newError: any = {};
@@ -94,7 +116,20 @@ export default function Form({ allStudents, setAllStudents }: any) {
             city: City
         };
 
-        setAllStudents(prev => [...prev, studentData]);
+        if (editIndex !== null) {
+            let updateStudent = [...allStudents]
+            updateStudent[editIndex] = studentData;
+            setAllStudents(updateStudent);
+
+            setEditIndex(null)
+
+            toast.success("Student Updated Successfully....");
+        } else {
+            setAllStudents((allStudents) => [...allStudents, studentData]);
+
+            toast.success("Student insertion Successfully Done...")
+
+        }
 
         setFName("");
         setlName("");
@@ -105,8 +140,6 @@ export default function Form({ allStudents, setAllStudents }: any) {
         setCourse("");
         setCity("");
         setError({});
-
-        toast.success(" Student Registered Successfully!");
     };
 
     const getHobby = (event: any) => {
@@ -238,8 +271,8 @@ export default function Form({ allStudents, setAllStudents }: any) {
                     </div>
 
                     <div className="pt-4">
-                        <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 rounded-xl shadow-xl transition-all transform hover:-translate-y-1 active:scale-95">
-                            Complete Registration
+                        <button className={`w-full bg-linear-to-r ${editIndex !== null ? "from-gray-500 to-gray-600 hover:from-gray-700 hover:to-gray-700" : "from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"} text-white font-bold py-4 rounded-xl shadow-xl transition-all transform hover:-translate-y-1 active:scale-95`}>
+                            {editIndex !== null ? "Update Student" : "Add Student"}
                         </button>
                     </div>
                 </form>

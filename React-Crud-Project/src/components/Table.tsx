@@ -3,10 +3,11 @@ import type { studentType } from "../utils/global";
 
 type props = {
     allStudents: studentType[],
-    deleteStudent: (index: number) => void
+    deleteStudent: (index: number) => void,
+    updateStudent: (index: number) => void,
 }
 
-export default function Table({ allStudents , deleteStudent}: props) {
+export default function Table({ allStudents, deleteStudent, updateStudent }: props) {
 
 
 
@@ -102,7 +103,9 @@ export default function Table({ allStudents , deleteStudent}: props) {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <div className="flex items-center space-x-3">
-                                                <button className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition cursor-pointer">
+                                                <button onClick={() => {
+                                                    updateStudent(index);
+                                                }} className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition cursor-pointer">
                                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                                     </svg>
