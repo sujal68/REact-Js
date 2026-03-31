@@ -24,6 +24,18 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
     //     city: string
     // };
 
+    const [search, setSearch] = useState<string>("");
+
+    const filterStudents = allStudents.filter((student) => {
+        return (
+            student.fName.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+            student.lName.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+            student.email.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+            student.city.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+
+        );
+    });
+
 
     return (
         <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -47,6 +59,10 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
                         <input
                             type="text"
                             placeholder="Search records..."
+                            value={search}
+                            onChange={(event) => {
+                                setSearch(event.target.value);
+                            }}
                             className="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition duration-200 sm:text-sm"
                         />
                     </div>
@@ -71,7 +87,7 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-100">
-                                {allStudents.map((student, index) => (
+                                {filterStudents.map((student, index) => (
                                     <tr key={index} className="hover:bg-blue-50/30 transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-400">
                                             #{index + 1}
