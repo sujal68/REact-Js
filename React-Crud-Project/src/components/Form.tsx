@@ -155,13 +155,13 @@ export default function Form({ allStudents, setAllStudents, editStudent, editInd
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex items-center justify-center p-4 md:p-8">
+        <div className="min-h-screen  flex items-center justify-center p-4 md:p-8">
             <ToastContainer />
 
-            <div className="bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl border border-white p-6 md:p-10 w-full max-w-4xl">
+            <div className="bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl border border-white p-6 md:p-10 w-full max-w-7xl">
 
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold text-gray-800 tracking-tight">Student Registration</h2>
+                    <h2 className="text-3xl font-bold text-gray-800 tracking-tight">  {editIndex !== null ? "Update Student" : "Register Student"}</h2>
                     <p className="text-gray-500 mt-2 text-sm uppercase tracking-widest">Enrollment Portal 2026</p>
                 </div>
 

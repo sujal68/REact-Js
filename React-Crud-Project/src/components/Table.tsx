@@ -38,7 +38,7 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
 
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto text-center mb-12">
                 <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
                     Student <span className="text-blue-600">Database</span>
