@@ -25,14 +25,21 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
     // };
 
     const [search, setSearch] = useState<string>("");
+    const [phoneSearch, setPhoneSearch] = useState<string>("");
 
     const filterStudents = allStudents.filter((student) => {
-        return (
-            student.fName.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-            student.lName.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-            student.email.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
-            student.city.toLocaleLowerCase().includes(search.toLocaleLowerCase())
 
+        const normalMatch =
+            student.fName.toLowerCase().includes(search.toLowerCase()) ||
+            student.lName.toLowerCase().includes(search.toLowerCase()) ||
+            student.email.toLowerCase().includes(search.toLowerCase()) ||
+            student.city.toLowerCase().includes(search.toLowerCase());
+
+        const phoneMatch = student.phone.includes(phoneSearch);
+
+        return (
+            (search === "" || normalMatch) &&
+            (phoneSearch === "" || phoneMatch)
         );
     });
 
@@ -56,15 +63,26 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </span>
-                        <input
-                            type="text"
-                            placeholder="Search records..."
-                            value={search}
-                            onChange={(event) => {
-                                setSearch(event.target.value);
-                            }}
-                            className="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition duration-200 sm:text-sm"
-                        />
+                        <div className="flex">
+                            <input
+                                type="text"
+                                placeholder="Search records..."
+                                value={search}
+                                onChange={(event) => {
+                                    setSearch(event.target.value);
+                                }}
+                                className="block w-full pl-10 pr-3 mx-2 py-2.5 border border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition duration-200 sm:text-sm"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Search With Phone Number"
+                                value={phoneSearch}
+                                onChange={(event) => {
+                                    setPhoneSearch(event.target.value);
+                                }}
+                                className="block w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-xl leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition duration-200 sm:text-sm"
+                            />
+                        </div>
                     </div>
                     <button className="inline-flex items-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-xl shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
