@@ -43,10 +43,46 @@ export default function Table({ allStudents, deleteStudent, updateStudent }: pro
         );
     });
 
+    const totalStudents = filterStudents.length;
+
+    const maleCount = filterStudents.filter(
+        (s) => s.gender.toLowerCase() === "male"
+    ).length;
+
+    const femaleCount = filterStudents.filter(
+        (s) => s.gender.toLowerCase() === "female"
+    ).length;
+
+    const uniqueCities = new Set(filterStudents.map(s => s.city)).size;
+
 
     return (
         <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
+
             <div className="max-w-7xl mx-auto text-center mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5">
+
+                    <div className="bg-white p-6 rounded-2xl shadow-md border hover:shadow-xl transition">
+                        <h2 className="text-gray-500 text-sm">Total Students</h2>
+                        <p className="text-3xl font-bold text-blue-600 mt-2">{totalStudents}</p>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-2xl shadow-md border hover:shadow-xl transition">
+                        <h2 className="text-gray-500 text-sm">Male</h2>
+                        <p className="text-3xl font-bold text-green-600 mt-2">{maleCount}</p>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-2xl shadow-md border hover:shadow-xl transition">
+                        <h2 className="text-gray-500 text-sm">Female</h2>
+                        <p className="text-3xl font-bold text-pink-500 mt-2">{femaleCount}</p>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-2xl shadow-md border hover:shadow-xl transition">
+                        <h2 className="text-gray-500 text-sm">Cities</h2>
+                        <p className="text-3xl font-bold text-purple-600 mt-2">{uniqueCities}</p>
+                    </div>
+
+                </div>
                 <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
                     Student <span className="text-blue-600">Database</span>
                 </h1>
