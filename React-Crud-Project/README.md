@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# 🎓 Student Enrollment CRUD App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured **Student Management System** built with **React + TypeScript + Vite + Tailwind CSS**. Add, update, delete, and search student records — all stored in `localStorage`.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tech Stack
 
-## React Compiler
+| Technology | Version |
+|---|---|
+| React | 19.x |
+| TypeScript | 5.9.x |
+| Vite | 7.x |
+| Tailwind CSS | 4.x |
+| React Toastify | 11.x |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✅ **Add Student** — Register students with full details
+- ✏️ **Update Student** — Edit existing student records inline
+- 🗑️ **Delete Student** — Remove records with toast notification
+- 🔍 **Search** — Filter by name, email, city or phone number
+- 📊 **Live Stats** — Total students, male/female count, unique cities
+- 💾 **LocalStorage** — Data persists on page refresh
+- 📱 **Responsive** — Works on mobile, tablet & desktop
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📸 Screenshots
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 📝 Registration Form
+![Form](./src/assets/form.png)
+
+### 📋 Student Table
+![Table](./src/assets/table.png)
+
+---
+
+## 🗂️ Project Structure
+
+```
+src/
+├── assets/
+│   ├── form.png          # Form screenshot
+│   └── table.png         # Table screenshot
+├── components/
+│   ├── Form.tsx          # Student registration & update form
+│   └── Table.tsx         # Student data table with search & stats
+├── utils/
+│   └── global.ts         # Shared TypeScript types
+├── App.tsx               # Root component — state management
+└── main.tsx              # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧾 Student Fields
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Field | Type | Validation |
+|---|---|---|
+| First Name | Text | Required |
+| Last Name | Text | Required |
+| Email | Email | Required, valid format |
+| Phone | Number | Required, 10-digit Indian number |
+| Gender | Radio | Required (Male / Female / Other) |
+| Hobbies | Checkbox | At least one required |
+| Course | Text | Required |
+| City | Dropdown | Required |
+
+---
+
+## ⚡ Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
 ```
+
+---
+
+## 👨‍💻 Author
+
+Made with ❤️ using React + TypeScript
