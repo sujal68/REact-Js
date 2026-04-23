@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import HomePage from "../pages/homePage";
-import AboutPage from "../pages/aboutPage";
-import ContactPage from "../pages/contactPage";
 import NoFound from "../pages/noFoundPage";
+import AddProductPage from "../pages/addProductPage";
+import ProductPage from "../pages/ProductPage";
+import AddToCart from "../pages/AddToCart";
 
 export const router = createBrowserRouter([
     {
@@ -15,12 +16,16 @@ export const router = createBrowserRouter([
                 Component: HomePage
             },
             {
-                path: "about",
-                Component: AboutPage
+                path: "addProduct",
+                Component: AddProductPage
             },
             {
-                path: "contact",
-                Component: ContactPage
+                path: "product",
+                Component: ProductPage
+            },
+            {
+                path: "cart",
+                Component: AddToCart,
             },
             {
                 path: "*",
