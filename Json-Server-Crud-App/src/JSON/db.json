@@ -2,7 +2,7 @@
   "product": [
     {
       "id": "H105",
-      "p_name": "Almonds",
+      "p_name": "Almondss",
       "p_price": 800,
       "p_stock": 25,
       "p_image": "https://images.pexels.com/photos/9974501/pexels-photo-9974501.jpeg",
@@ -10,7 +10,7 @@
       "p_description": "Healthy fats and protein-rich almonds."
     },
     {
-      "p_name": "Orenge Cat",
+      "p_name": "Orenge Cats",
       "p_price": 788,
       "p_stock": 45,
       "p_image": "https://images.pexels.com/photos/33626386/pexels-photo-33626386.jpeg",
@@ -19,42 +19,33 @@
       "id": "GR_T965Nbbw"
     },
     {
-      "p_name": "Strobery",
-      "p_price": 655,
-      "p_stock": 87,
+      "p_name": "Almonds",
+      "p_price": 765,
+      "p_stock": 43,
       "p_image": "https://images.pexels.com/photos/7050068/pexels-photo-7050068.jpeg",
-      "p_category": "Fruits",
-      "p_description": "The garden strawberry is a widely grown hybrid plant cultivated worldwide for its fruit. The genus Fragaria, the strawberries, is in the rose family, Rosaceae. The fruit is appreciated for its aroma, bright red colour, juicy texture, and sweetness.",
-      "id": "9PoOy5Zs6wY"
-    },
-    {
-      "p_name": "Coffeee",
-      "p_price": 982,
-      "p_stock": 21,
-      "p_image": "https://images.pexels.com/photos/31336111/pexels-photo-31336111.jpeg",
-      "p_category": "Beverages",
-      "p_description": "Coffee is a beverage brewed from roasted, ground coffee beans. Darkly colored, bitter, and slightly acidic, coffee has a stimulating effect on humans, primarily due to its caffeine content, but decaffeinated coffee is also commercially available. There are also various coffee substitutes.",
-      "id": "-FrwaoEdcBA"
-    },
-    {
-      "p_name": "Tometo ",
-      "p_price": 543,
-      "p_stock": 65,
-      "p_image": "https://images.pexels.com/photos/1435899/pexels-photo-1435899.jpeg",
       "p_category": "Healthy Food",
-      "p_description": "\"Tometo\" commonly refers to the tomato (Solanum lycopersicum), an edible berry from the nightshade family often used as a vegetable, originating from South America. It is widely used in cooking (soups, sauces, salads) and is cultivated for its nutrient-rich, juicy fruit. ",
-      "id": "TkoFg6eIupE"
+      "p_description": "sdfghjk",
+      "id": "eXD3YGezHws"
     }
   ],
   "cart": [
     {
-      "productId": "9PoOy5Zs6wY",
-      "p_name": "Strobery",
-      "p_price": 655,
-      "p_image": "https://images.pexels.com/photos/7050068/pexels-photo-7050068.jpeg",
-      "p_category": "Fruits",
+      "productId": "GR_T965Nbbw",
+      "p_name": "Orenge Cat",
+      "p_price": 788,
+      "p_image": "https://images.pexels.com/photos/33626386/pexels-photo-33626386.jpeg",
+      "p_category": "Dry Fruits",
       "quantity": 1,
-      "id": "FDyFqoJPk38"
+      "id": "bpGQpsILIAY"
+    },
+    {
+      "productId": "H105",
+      "p_name": "Almonds",
+      "p_price": 800,
+      "p_image": "https://images.pexels.com/photos/9974501/pexels-photo-9974501.jpeg",
+      "p_category": "Dry Fruits",
+      "quantity": 1,
+      "id": "hVmB6ARSgx4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

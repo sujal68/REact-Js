@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { FaLeaf, FaShoppingCart, FaHeart, FaEdit, FaTrashAlt } from "react-icons/fa";
-import { fetchSingleProduct, deleteProduct, addToCart, fetchCart } from "../Services/ProductService";
+import { FaLeaf, FaEdit, FaTrashAlt } from "react-icons/fa";
+import { fetchSingleProduct, deleteProduct } from "../Services/ProductService";
 import type { productFetchType } from "../utils/global";
 import { toast } from "react-toastify";
 
@@ -28,31 +28,6 @@ export default function ProductDetailPage() {
             navigate("/product");
         } else {
             toast.error("Failed to delete product.");
-        }
-    };
-
-    const handleAddToCart = async () => {
-        if (!productData) return;
-        // Check if already in cart
-        const cartItems = await fetchCart();
-        const existing = cartItems.find((item: any) => item.productId === productData.id);
-        if (existing) {
-            toast.info("Already in cart!");
-            return;
-        }
-        const status = await addToCart({
-            productId: productData.id,
-            p_name: productData.p_name,
-            p_price: productData.p_price,
-            p_image: productData.p_image,
-            p_category: productData.p_category,
-            quantity: 1,
-        });
-        if (status) {
-            toast.success("Product Added to Cart Successfully! 🛒");
-            navigate('/cart');
-        } else {
-            toast.error("Failed to add to cart.");
         }
     };
 
@@ -131,14 +106,7 @@ export default function ProductDetailPage() {
                             </div>
 
                             <div className="pt-4 space-y-3">
-                                <div className="flex gap-3">
-                                    <button onClick={handleAddToCart} className="btn-primary flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl text-white font-bold">
-                                        <FaShoppingCart /> Add to Cart
-                                    </button>
-                                    <button className="p-4 bg-gray-50 border border-gray-200 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-2xl transition-all">
-                                        <FaHeart />
-                                    </button>
-                                </div>
+
                                 <div className="flex gap-3">
                                     <button
                                         onClick={() => navigate(`/edit-product/${productData.id}`)}

@@ -3,6 +3,7 @@ import type { productFetchType } from "../utils/global";
 import { deleteProduct, fetchAllProducts } from "../Services/ProductService";
 import { useNavigate } from "react-router";
 import { FaLeaf, FaSearch, FaFilter, FaTimes } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const CATEGORIES = ["All", "Fruits", "Dry Fruits", "Healthy Food", "Beverages"];
 
@@ -19,8 +20,13 @@ export default function ViewProductPage() {
     }, []);
 
     const handleDelete = async (id: string) => {
-        await deleteProduct(id);
-        setAllProduct((prev) => prev.filter((p) => p.id !== id));
+        const status = await deleteProduct(id);
+        if (status) {
+            setAllProduct((prev) => prev.filter((p) => p.id !== id));
+            toast.success("Product deleted successfully!");
+        } else {
+            toast.error("Failed to delete product. Try again!");
+        }
     };
 
     // Live filter + search

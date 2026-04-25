@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; // React Router use kar rahe ho toh
+import { NavLink } from "react-router-dom";
 
-// 1. Link ke liye Interface define kiya
 interface NavItem {
     path: string;
     label: string;
@@ -9,11 +8,8 @@ interface NavItem {
 }
 
 const App: React.FC = () => {
-    // 2. State types define kiye
-    const [cartCount] = useState<number>(2);
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    // 3. Array of objects with Type
     const navLinks: NavItem[] = [
         { path: "/", label: "Home", exact: true },
         { path: "/addProduct", label: "Add Product" },
@@ -25,7 +21,6 @@ const App: React.FC = () => {
             <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
                 <nav className="w-full max-w-6xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300">
                     
-                    {/* --- Logo --- */}
                     <div className="flex items-center gap-2 text-xl md:text-2xl font-black tracking-widest cursor-pointer hover:scale-105 transition-transform duration-300">
                         <span className="drop-shadow-md">🥝</span>
                         <span className="bg-gradient-to-r from-emerald-600 via-green-500 to-lime-500 bg-clip-text text-transparent">
@@ -33,7 +28,6 @@ const App: React.FC = () => {
                         </span>
                     </div>
 
-                    {/* --- Desktop Links (Hidden on Mobile) --- */}
                     <div className="hidden md:flex items-center gap-x-2">
                         {navLinks.map((link) => (
                             <NavLink
@@ -54,19 +48,6 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <NavLink
-                            to="/cart"
-                            className="group relative flex items-center justify-center px-5 py-2.5 rounded-full bg-emerald-600 text-white text-sm font-semibold shadow-sm hover:bg-emerald-500 transition-all duration-300 active:scale-95"
-                        >
-                            <span className="flex items-center gap-2">
-                                <span className="hidden sm:inline">Cart</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </span>
-                           
-                        </NavLink>
-
                         <button 
                             onClick={() => setIsOpen(!isOpen)}
                             className="md:hidden p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"

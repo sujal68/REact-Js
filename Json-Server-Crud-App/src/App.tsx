@@ -19,7 +19,8 @@ export default function App() {
         pauseOnHover
         draggable
         theme="colored"
-        style={{ zIndex: 999999 }}
+        style={{ zIndex: 99999 }}
+        className="!fixed !top-4 !right-4"
       />
     </>
   );

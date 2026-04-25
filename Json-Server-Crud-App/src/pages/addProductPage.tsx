@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaLeaf, FaUpload } from "react-icons/fa";
+import { FaLeaf } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { addProduct } from "../Services/ProductService";
@@ -37,7 +37,7 @@ export default function AddProductPage() {
 
         if (status) {
             toast.success("Product added successfully!");
-            navigate('/product');
+            setTimeout(() => navigate('/product'), 250);
         } else {
             toast.error("Something went wrong. Try again!");
         }
