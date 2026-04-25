@@ -1,141 +1,61 @@
 {
-    "product": [
-        {
-            "id": "H101",
-            "p_name": "Apple",
-            "p_price": 120,
-            "p_stock": 50,
-            "p_image": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce",
-            "p_category": "Fruits",
-            "p_description": "Fresh red apples rich in fiber and vitamins."
-        },
-        {
-            "id": "H102",
-            "p_name": "Banana",
-            "p_price": 60,
-            "p_stock": 80,
-            "p_image": "https://images.unsplash.com/photo-1574226516831-e1dff420e12b",
-            "p_category": "Fruits",
-            "p_description": "High-energy bananas loaded with potassium."
-        },
-        {
-            "id": "H103",
-            "p_name": "Orange",
-            "p_price": 90,
-            "p_stock": 60,
-            "p_image": "https://images.unsplash.com/photo-1587735243615-c03f25aaff15",
-            "p_category": "Fruits",
-            "p_description": "Juicy oranges packed with vitamin C."
-        },
-        {
-            "id": "H104",
-            "p_name": "Papaya",
-            "p_price": 70,
-            "p_stock": 40,
-            "p_image": "https://images.unsplash.com/photo-1615485291234-9d86c1c0b1f3",
-            "p_category": "Fruits",
-            "p_description": "Rich in digestive enzymes and antioxidants."
-        },
-        {
-            "id": "H105",
-            "p_name": "Almonds",
-            "p_price": 800,
-            "p_stock": 25,
-            "p_image": "https://images.unsplash.com/photo-1508747703725-719777637510",
-            "p_category": "Dry Fruits",
-            "p_description": "Healthy fats and protein-rich almonds."
-        },
-        {
-            "id": "H106",
-            "p_name": "Cashews",
-            "p_price": 900,
-            "p_stock": 20,
-            "p_image": "https://images.unsplash.com/photo-1615486365636-d8a1b1c0a74d",
-            "p_category": "Dry Fruits",
-            "p_description": "Crunchy cashews full of nutrients."
-        },
-        {
-            "id": "H107",
-            "p_name": "Brown Bread",
-            "p_price": 50,
-            "p_stock": 35,
-            "p_image": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec",
-            "p_category": "Healthy Food",
-            "p_description": "Whole wheat bread for a balanced diet."
-        },
-        {
-            "id": "H108",
-            "p_name": "Oats",
-            "p_price": 180,
-            "p_stock": 30,
-            "p_image": "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60",
-            "p_category": "Healthy Food",
-            "p_description": "High-fiber oats for breakfast and weight control."
-        },
-        {
-            "id": "H109",
-            "p_name": "Peanut Butter",
-            "p_price": 250,
-            "p_stock": 20,
-            "p_image": "https://images.unsplash.com/photo-1585238342028-4d0e1c72d8f5",
-            "p_category": "Healthy Food",
-            "p_description": "Protein-rich peanut butter for muscle gain."
-        },
-        {
-            "id": "H110",
-            "p_name": "Green Tea",
-            "p_price": 300,
-            "p_stock": 40,
-            "p_image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-            "p_category": "Beverages",
-            "p_description": "Antioxidant-rich tea for detox and fat loss."
-        },
-        {
-            "id": "H111",
-            "p_name": "Coconut Water",
-            "p_price": 50,
-            "p_stock": 60,
-            "p_image": "https://images.unsplash.com/photo-1590077428593-a55bb07c4665",
-            "p_category": "Beverages",
-            "p_description": "Natural hydration with essential electrolytes."
-        },
-        {
-            "id": "H112",
-            "p_name": "Boiled Sweet Corn",
-            "p_price": 80,
-            "p_stock": 45,
-            "p_image": "https://images.unsplash.com/photo-1603046891720-36d14b5cba9c",
-            "p_category": "Healthy Food",
-            "p_description": "Light and nutritious snack rich in fiber."
-        },
-        {
-            "id": "H113",
-            "p_name": "Sprouts Salad",
-            "p_price": 100,
-            "p_stock": 30,
-            "p_image": "https://images.unsplash.com/photo-1604908177522-040f2fca79c7",
-            "p_category": "Healthy Food",
-            "p_description": "Protein-packed sprouts with fresh veggies."
-        },
-        {
-            "id": "H114",
-            "p_name": "Dates (Khajoor)",
-            "p_price": 350,
-            "p_stock": 25,
-            "p_image": "https://images.unsplash.com/photo-1604908812821-1b55d9f7c7c4",
-            "p_category": "Dry Fruits",
-            "p_description": "Natural sweetener and instant energy booster."
-        },
-        {
-            "id": "H115",
-            "p_name": "Mixed Fruit Bowl",
-            "p_price": 150,
-            "p_stock": 20,
-            "p_image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-            "p_category": "Healthy Food",
-            "p_description": "Combination of seasonal fresh fruits."
-        }
-    ],
-    "cart": [],
-    "$schema": "./node_modules/json-server/schema.json"
+  "product": [
+    {
+      "id": "H105",
+      "p_name": "Almonds",
+      "p_price": 800,
+      "p_stock": 25,
+      "p_image": "https://images.pexels.com/photos/9974501/pexels-photo-9974501.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Healthy fats and protein-rich almonds."
+    },
+    {
+      "p_name": "Orenge Cat",
+      "p_price": 788,
+      "p_stock": 45,
+      "p_image": "https://images.pexels.com/photos/33626386/pexels-photo-33626386.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "This Is The Cat",
+      "id": "GR_T965Nbbw"
+    },
+    {
+      "p_name": "Strobery",
+      "p_price": 655,
+      "p_stock": 87,
+      "p_image": "https://images.pexels.com/photos/7050068/pexels-photo-7050068.jpeg",
+      "p_category": "Fruits",
+      "p_description": "The garden strawberry is a widely grown hybrid plant cultivated worldwide for its fruit. The genus Fragaria, the strawberries, is in the rose family, Rosaceae. The fruit is appreciated for its aroma, bright red colour, juicy texture, and sweetness.",
+      "id": "9PoOy5Zs6wY"
+    },
+    {
+      "p_name": "Coffeee",
+      "p_price": 982,
+      "p_stock": 21,
+      "p_image": "https://images.pexels.com/photos/31336111/pexels-photo-31336111.jpeg",
+      "p_category": "Beverages",
+      "p_description": "Coffee is a beverage brewed from roasted, ground coffee beans. Darkly colored, bitter, and slightly acidic, coffee has a stimulating effect on humans, primarily due to its caffeine content, but decaffeinated coffee is also commercially available. There are also various coffee substitutes.",
+      "id": "-FrwaoEdcBA"
+    },
+    {
+      "p_name": "Tometo ",
+      "p_price": 543,
+      "p_stock": 65,
+      "p_image": "https://images.pexels.com/photos/1435899/pexels-photo-1435899.jpeg",
+      "p_category": "Healthy Food",
+      "p_description": "\"Tometo\" commonly refers to the tomato (Solanum lycopersicum), an edible berry from the nightshade family often used as a vegetable, originating from South America. It is widely used in cooking (soups, sauces, salads) and is cultivated for its nutrient-rich, juicy fruit. ",
+      "id": "TkoFg6eIupE"
+    }
+  ],
+  "cart": [
+    {
+      "productId": "9PoOy5Zs6wY",
+      "p_name": "Strobery",
+      "p_price": 655,
+      "p_image": "https://images.pexels.com/photos/7050068/pexels-photo-7050068.jpeg",
+      "p_category": "Fruits",
+      "quantity": 1,
+      "id": "FDyFqoJPk38"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

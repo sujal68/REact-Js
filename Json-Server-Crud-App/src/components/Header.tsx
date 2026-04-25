@@ -53,7 +53,6 @@ const App: React.FC = () => {
                         ))}
                     </div>
 
-                    {/* --- Right Actions --- */}
                     <div className="flex items-center gap-3">
                         <NavLink
                             to="/cart"
@@ -65,14 +64,9 @@ const App: React.FC = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
                             </span>
-                            {cartCount > 0 && (
-                                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-rose-500 border-2 border-white text-[10px] font-bold text-white shadow-sm">
-                                    {cartCount}
-                                </span>
-                            )}
+                           
                         </NavLink>
 
-                        {/* Mobile Toggle Button */}
                         <button 
                             onClick={() => setIsOpen(!isOpen)}
                             className="md:hidden p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
@@ -85,12 +79,10 @@ const App: React.FC = () => {
                 </nav>
             </header>
 
-            {/* --- Mobile Sidebar Drawer --- */}
             <div className={`fixed inset-0 z-[60] md:hidden transition-opacity duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
-                {/* Backdrop Overlay */}
+            
                 <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setIsOpen(false)}></div>
                 
-                {/* Side Panel (Animated Slide) */}
                 <div className={`absolute top-0 right-0 h-full w-[280px] bg-white shadow-2xl transition-transform duration-500 ease-in-out p-8 flex flex-col gap-4 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
                     <div className="flex justify-between items-center mb-6 border-b pb-4">
                         <span className="font-black text-emerald-600 text-lg">FRUIREAL</span>

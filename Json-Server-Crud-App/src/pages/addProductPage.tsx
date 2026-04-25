@@ -1,78 +1,47 @@
 import { useState } from "react";
-import { FaLeaf, FaUpload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
-import { NavLink } from "react-router";
+import { FaLeaf, FaUpload } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { addProduct } from "../Services/ProductService";
 
 export default function AddProductPage() {
-    const [formData, setFormData] = useState<{
-        name: string;
-        price: string;
-        category: string;
-        origin: string;
-        description: string;
-        stock: string;
-        image: File | null;
-        isOrganic: boolean;
-    }>({
-        name: "",
-        price: "",
-        category: "mango",
-        origin: "",
-        description: "",
-        stock: "",
-        image: null,
-        isOrganic: true,
+    const navigate = useNavigate();
+
+    const [productData, setProductData] = useState({
+        p_name: "",
+        p_price: 0,
+        p_stock: 0,
+        p_image: "",
+        p_category: "",
+        p_description: "",
     });
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+    const productCategory = ["Fruits", "Dry Fruits", "Healthy Food", "Beverages"];
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value, type } = e.target;
-        const checked = (e.target as HTMLInputElement).checked;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
-    };
+    const onHandleChange = (event: any) => {
+        const { name, value } = event.target;
+        setProductData(prev => ({ ...prev, [name]: (name === 'p_price' || name === 'p_stock') ? Number(value) : value }));
+    }
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            setFormData((prev) => ({ ...prev, image: file }));
+    const onHandleSubmit = async (event: any) => {
+        event.preventDefault();
+
+        if (!productData.p_name || productData.p_price === 0 || productData.p_stock === 0 || !productData.p_image || !productData.p_category || !productData.p_description) {
+            toast.error("All fields are required..");
+            return;
         }
-    };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitStatus(null);
+        console.log("Product Data : ", productData);
 
-        // Simulate API call
-        try {
-            await new Promise((resolve) => setTimeout(resolve, 1500));
-            console.log("Product Data:", formData);
-            setSubmitStatus("success");
-            // Reset form after success
-            setTimeout(() => {
-                setFormData({
-                    name: "",
-                    price: "",
-                    category: "mango",
-                    origin: "",
-                    description: "",
-                    stock: "",
-                    image: null,
-                    isOrganic: true,
-                });
-                setSubmitStatus(null);
-            }, 2000);
-        } catch (error) {
-            setSubmitStatus("error");
-            setTimeout(() => setSubmitStatus(null), 3000);
-        } finally {
-            setIsSubmitting(false);
+        const status = await addProduct(productData);
+
+        if (status) {
+            toast.success("Product added successfully!");
+            navigate('/product');
+        } else {
+            toast.error("Something went wrong. Try again!");
         }
-    };
+    }
 
     return (
         <>
@@ -209,7 +178,6 @@ export default function AddProductPage() {
                 <div className="orb-bg-2" />
 
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    {/* Header with back button */}
                     <div className="animate-fade-up mb-8">
                         <NavLink
                             to="/"
@@ -238,191 +206,45 @@ export default function AddProductPage() {
                         </div>
                     </div>
 
-                    {/* Form Card */}
                     <div className="animate-fade-up-delay">
                         <div className="glass-form rounded-3xl p-6 sm:p-8 lg:p-10">
-                            {submitStatus === "success" && (
-                                <div className="animate-success mb-6 p-4 rounded-xl bg-green-50 border border-green-200 flex items-center gap-3">
-                                    <FaCheckCircle className="text-green-500 text-xl flex-shrink-0" />
-                                    <p className="text-green-700 font-medium">Product added successfully! Redirecting...</p>
-                                </div>
-                            )}
-
-                            {submitStatus === "error" && (
-                                <div className="animate-success mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-center gap-3">
-                                    <FaTimesCircle className="text-red-500 text-xl flex-shrink-0" />
-                                    <p className="text-red-700 font-medium">Something went wrong. Please try again.</p>
-                                </div>
-                            )}
-
-                            <form onSubmit={handleSubmit} className="space-y-7">
+                            <form onSubmit={onHandleSubmit} className="space-y-7">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
-                                    {/* Left Column */}
                                     <div className="space-y-6">
-                                        {/* Product Name */}
                                         <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                                Product Name <span className="text-green-500">*</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                required
-                                                className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400"
-                                                placeholder="e.g., Organic Alphonso Mango"
-                                            />
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Product Name <span className="text-green-500">*</span></label>
+                                            <input type="text" name="p_name" value={productData.p_name} onChange={onHandleChange} className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400" placeholder="e.g., Organic Alphonso Mango" />
                                         </div>
-
-                                        {/* Price */}
                                         <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                                Price (₹) <span className="text-green-500">*</span>
-                                            </label>
-                                            <input
-                                                type="number"
-                                                name="price"
-                                                value={formData.price}
-                                                onChange={handleChange}
-                                                required
-                                                step="0.01"
-                                                min="0"
-                                                className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400"
-                                                placeholder="e.g., 450"
-                                            />
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Price (₹) <span className="text-green-500">*</span></label>
+                                            <input type="number" name="p_price" value={productData.p_price === 0 ? "" : productData.p_price} onChange={onHandleChange} min="0" className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400" placeholder="e.g., 450" />
                                         </div>
-
-                                        {/* Category */}
                                         <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                                Category <span className="text-green-500">*</span>
-                                            </label>
-                                            <select
-                                                name="category"
-                                                value={formData.category}
-                                                onChange={handleChange}
-                                                className="form-select w-full px-5 py-3.5 rounded-xl text-gray-800 bg-white"
-                                            >
-                                                <option value="mango">Mango</option>
-                                                <option value="apple">Apple</option>
-                                                <option value="orange">Orange</option>
-                                                <option value="grapes">Grapes</option>
-                                                <option value="strawberry">Strawberry</option>
-                                                <option value="other">Other</option>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Category <span className="text-green-500">*</span></label>
+                                            <select name="p_category" value={productData.p_category} onChange={onHandleChange} className="form-select w-full px-5 py-3.5 rounded-xl text-gray-800 bg-white">
+                                                <option value="">Select a category</option>
+                                                {productCategory.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
                                             </select>
                                         </div>
-
-                                        {/* Origin */}
-                                        <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                                Origin / Farm Location
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="origin"
-                                                value={formData.origin}
-                                                onChange={handleChange}
-                                                className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400"
-                                                placeholder="e.g., Ratnagiri, Maharashtra"
-                                            />
-                                        </div>
                                     </div>
 
-                                    {/* Right Column */}
                                     <div className="space-y-6">
-                                        {/* Stock */}
                                         <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                                Stock Quantity <span className="text-green-500">*</span>
-                                            </label>
-                                            <input
-                                                type="number"
-                                                name="stock"
-                                                value={formData.stock}
-                                                onChange={handleChange}
-                                                required
-                                                min="0"
-                                                className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400"
-                                                placeholder="e.g., 100"
-                                            />
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Stock Quantity <span className="text-green-500">*</span></label>
+                                            <input type="number" name="p_stock" value={productData.p_stock === 0 ? "" : productData.p_stock} onChange={onHandleChange} min="0" className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400" placeholder="e.g., 100" />
                                         </div>
-
-                                        {/* Description */}
                                         <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                                Description
-                                            </label>
-                                            <textarea
-                                                name="description"
-                                                value={formData.description}
-                                                onChange={handleChange}
-                                                rows={4}
-                                                className="form-textarea w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400 resize-none"
-                                                placeholder="Describe your product — taste notes, harvesting method, special features..."
-                                            />
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Image URL <span className="text-green-500">*</span></label>
+                                            <input type="text" name="p_image" value={productData.p_image} onChange={onHandleChange} className="form-input w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400" placeholder="https://images.com/product.jpg" />
+                                            {productData.p_image && <img src={productData.p_image} alt="preview" className="mt-2 h-20 rounded-lg object-cover" />}
                                         </div>
-
-                                        {/* Organic Checkbox */}
-                                        <div className="flex items-center gap-3 pt-2">
-                                            <input
-                                                type="checkbox"
-                                                name="isOrganic"
-                                                checked={formData.isOrganic}
-                                                onChange={handleChange}
-                                                className="w-5 h-5 rounded border-green-300 text-green-600 focus:ring-green-500"
-                                            />
-                                            <label className="text-gray-700 font-medium">
-                                                Certified Organic
-                                            </label>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Description <span className="text-green-500">*</span></label>
+                                            <textarea name="p_description" value={productData.p_description} onChange={onHandleChange} rows={3} className="form-textarea w-full px-5 py-3.5 rounded-xl text-gray-800 placeholder-gray-400 resize-none" placeholder="Describe your product..." />
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Image Upload */}
-                                <div className="mt-4">
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                        Product Image
-                                    </label>
-                                    <div className="image-preview rounded-xl p-6 text-center cursor-pointer transition-all">
-                                        <input
-                                            type="file"
-                                            accept="image/*"
-                                            onChange={handleImageChange}
-                                            className="hidden"
-                                            id="image-upload"
-                                        />
-                                        <label htmlFor="image-upload" className="cursor-pointer block">
-                                            {formData.image ? (
-                                                <div className="space-y-3">
-                                                    <img
-                                                        src={URL.createObjectURL(formData.image)}
-                                                        alt="Preview"
-                                                        className="max-h-40 mx-auto rounded-lg object-contain"
-                                                    />
-                                                    <p className="text-sm text-green-600 font-medium">
-                                                        {formData.image.name}
-                                                    </p>
-                                                    <p className="text-xs text-gray-400">Click to change image</p>
-                                                </div>
-                                            ) : (
-                                                <div className="space-y-3">
-                                                    <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center">
-                                                        <FaUpload className="text-green-500 text-xl" />
-                                                    </div>
-                                                    <p className="text-gray-500">
-                                                        Click or drag to upload product image
-                                                    </p>
-                                                    <p className="text-xs text-gray-400">
-                                                        PNG, JPG up to 5MB
-                                                    </p>
-                                                </div>
-                                            )}
-                                        </label>
-                                    </div>
-                                </div>
-
-                                {/* Submit Button */}
                                 <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-between items-center">
                                     <NavLink
                                         to="/"
@@ -432,26 +254,14 @@ export default function AddProductPage() {
                                     </NavLink>
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting}
-                                        className="btn-submit px-10 py-3.5 rounded-xl text-white font-semibold disabled:opacity-60 disabled:cursor-not-allowed min-w-[160px]"
+                                        className="btn-submit px-10 py-3.5 rounded-xl text-white font-semibold min-w-[160px]"
                                     >
-                                        {isSubmitting ? (
-                                            <div className="flex items-center justify-center gap-2">
-                                                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                                </svg>
-                                                Adding...
-                                            </div>
-                                        ) : (
-                                            "Add Product →"
-                                        )}
+                                        Add Product →
                                     </button>
                                 </div>
                             </form>
                         </div>
 
-                        {/* Help text */}
                         <p className="text-center text-gray-400 text-xs mt-8">
                             By adding a product, you agree to our quality guidelines and terms of service.
                         </p>

@@ -5,6 +5,8 @@ import NoFound from "../pages/noFoundPage";
 import AddProductPage from "../pages/addProductPage";
 import ProductPage from "../pages/ProductPage";
 import AddToCart from "../pages/AddToCart";
+import EditProductPage from "../pages/EditProductPage";
+import ProductDetailPage from "../pages/ProductDetailPage";
 
 export const router = createBrowserRouter([
     {
@@ -13,24 +15,32 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: HomePage
+                Component: HomePage,
             },
             {
                 path: "addProduct",
-                Component: AddProductPage
+                Component: AddProductPage,
             },
             {
                 path: "product",
-                Component: ProductPage
+                Component: ProductPage,
             },
             {
                 path: "cart",
                 Component: AddToCart,
             },
             {
+                path: "edit-product/:productId",
+                Component: EditProductPage,
+            },
+            {
+                path: "product-detail/:productId",
+                Component: ProductDetailPage,
+            },
+            {
                 path: "*",
-                Component: NoFound
-            }
+                Component: NoFound,
+            },
         ],
     },
 ]);
