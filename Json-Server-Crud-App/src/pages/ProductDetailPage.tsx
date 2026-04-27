@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { FaLeaf, FaEdit, FaTrashAlt } from "react-icons/fa";
-import { fetchSingleProduct, deleteProduct } from "../Services/ProductService";
+import { FaLeaf, FaEdit, FaTrashAlt, FaShoppingCart } from "react-icons/fa";
+import { fetchSingleProduct, deleteProduct, fetchCart, addToCart, updateCartItem } from "../Services/ProductService";
 import type { productFetchType } from "../utils/global";
 import { toast } from "react-toastify";
 
@@ -17,6 +17,31 @@ export default function ProductDetailPage() {
     const getSingleProduct = async () => {
         const data = await fetchSingleProduct(productId || "");
         if (data) setProductData(data);
+    };
+
+    const handleAddToCart = async () => {
+        if (!productData) return;
+        const cartItems = await fetchCart();
+        const existing = cartItems.find((i) => i.productId === productData.id);
+        let status: boolean;
+        if (existing) {
+            status = await updateCartItem({ ...existing, quantity: existing.quantity + 1 });
+        } else {
+            status = await addToCart({
+                productId: productData.id,
+                p_name: productData.p_name,
+                p_price: productData.p_price,
+                p_image: productData.p_image,
+                p_category: productData.p_category,
+                quantity: 1,
+            });
+        }
+        if (status) {
+            toast.success("Added to cart!");
+            navigate("/cart");
+        } else {
+            toast.error("Failed to add to cart!");
+        }
     };
 
     const handleDelete = async () => {
@@ -106,6 +131,13 @@ export default function ProductDetailPage() {
                             </div>
 
                             <div className="pt-4 space-y-3">
+                                <button
+                                    onClick={handleAddToCart}
+                                    className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-white font-bold transition-all hover:-translate-y-0.5"
+                                    style={{ background: 'linear-gradient(135deg, #15803d, #22c55e)', boxShadow: '0 4px 14px rgba(22,163,74,0.3)' }}
+                                >
+                                    <FaShoppingCart /> Add to Cart
+                                </button>
 
                                 <div className="flex gap-3">
                                     <button

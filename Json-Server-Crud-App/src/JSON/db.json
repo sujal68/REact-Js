@@ -17,35 +17,17 @@
       "p_category": "Dry Fruits",
       "p_description": "This Is The Cat",
       "id": "GR_T965Nbbw"
-    },
-    {
-      "p_name": "Almonds",
-      "p_price": 765,
-      "p_stock": 43,
-      "p_image": "https://images.pexels.com/photos/7050068/pexels-photo-7050068.jpeg",
-      "p_category": "Healthy Food",
-      "p_description": "sdfghjk",
-      "id": "eXD3YGezHws"
     }
   ],
   "cart": [
     {
       "productId": "GR_T965Nbbw",
-      "p_name": "Orenge Cat",
+      "p_name": "Orenge Cats",
       "p_price": 788,
       "p_image": "https://images.pexels.com/photos/33626386/pexels-photo-33626386.jpeg",
       "p_category": "Dry Fruits",
       "quantity": 1,
-      "id": "bpGQpsILIAY"
-    },
-    {
-      "productId": "H105",
-      "p_name": "Almonds",
-      "p_price": 800,
-      "p_image": "https://images.pexels.com/photos/9974501/pexels-photo-9974501.jpeg",
-      "p_category": "Dry Fruits",
-      "quantity": 1,
-      "id": "hVmB6ARSgx4"
+      "id": "sFjIZ8UtVEc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

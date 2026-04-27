@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { fetchCart } from "../Services/ProductService";
 
 interface NavItem {
     path: string;
@@ -9,11 +11,20 @@ interface NavItem {
 
 const App: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [cartCount, setCartCount] = useState<number>(0);
+
+    useEffect(() => {
+        const loadCart = () => fetchCart().then((items) => setCartCount(items.reduce((s, i) => s + i.quantity, 0)));
+        loadCart();
+        window.addEventListener("focus", loadCart);
+        return () => window.removeEventListener("focus", loadCart);
+    }, []);
 
     const navLinks: NavItem[] = [
         { path: "/", label: "Home", exact: true },
         { path: "/addProduct", label: "Add Product" },
-        { path: "/product", label: "Products" }
+        { path: "/product", label: "Products" },
+        { path: "/cart", label: "Cart" }
     ];
 
     return (
@@ -48,6 +59,14 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-3">
+                        <NavLink to="/cart" className="relative p-2 rounded-full hover:bg-green-50 transition-colors">
+                            <FaShoppingCart className="text-xl text-gray-600 hover:text-green-600 transition-colors" />
+                            {cartCount > 0 && (
+                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 text-white text-xs font-black rounded-full flex items-center justify-center">
+                                    {cartCount > 99 ? "99+" : cartCount}
+                                </span>
+                            )}
+                        </NavLink>
                         <button 
                             onClick={() => setIsOpen(!isOpen)}
                             className="md:hidden p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
