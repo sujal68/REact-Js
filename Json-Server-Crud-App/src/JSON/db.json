@@ -1,34 +1,456 @@
 {
   "product": [
     {
-      "id": "H105",
-      "p_name": "Almondss",
+      "id": "H101",
+      "p_name": "Almonds",
       "p_price": 800,
       "p_stock": 25,
       "p_image": "https://images.pexels.com/photos/9974501/pexels-photo-9974501.jpeg",
       "p_category": "Dry Fruits",
-      "p_description": "Healthy fats and protein-rich almonds."
+      "p_description": "Premium quality almonds rich in healthy fats and protein."
     },
     {
-      "p_name": "Orenge Cats",
-      "p_price": 788,
-      "p_stock": 45,
-      "p_image": "https://images.pexels.com/photos/33626386/pexels-photo-33626386.jpeg",
+      "id": "H102",
+      "p_name": "Cashews",
+      "p_price": 950,
+      "p_stock": 30,
+      "p_image": "https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg",
       "p_category": "Dry Fruits",
-      "p_description": "This Is The Cat",
-      "id": "GR_T965Nbbw"
-    }
-  ],
-  "cart": [
+      "p_description": "Creamy and delicious cashews, perfect for snacking."
+    },
     {
-      "productId": "GR_T965Nbbw",
-      "p_name": "Orenge Cats",
-      "p_price": 788,
-      "p_image": "https://images.pexels.com/photos/33626386/pexels-photo-33626386.jpeg",
+      "id": "H103",
+      "p_name": "Walnuts",
+      "p_price": 1100,
+      "p_stock": 20,
+      "p_image": "https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg",
       "p_category": "Dry Fruits",
-      "quantity": 1,
-      "id": "sFjIZ8UtVEc"
+      "p_description": "Brain-boosting walnuts packed with omega-3 fatty acids."
+    },
+    {
+      "id": "H104",
+      "p_name": "Pistachios",
+      "p_price": 1300,
+      "p_stock": 15,
+      "p_image": "https://images.pexels.com/photos/8989483/pexels-photo-8989483.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Roasted and salted pistachios for a crunchy snack."
+    },
+    {
+      "id": "H105",
+      "p_name": "Raisins",
+      "p_price": 350,
+      "p_stock": 50,
+      "p_image": "https://images.pexels.com/photos/7474372/pexels-photo-7474372.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Sweet and chewy raisins, great for baking and snacking."
+    },
+    {
+      "id": "H106",
+      "p_name": "Dates",
+      "p_price": 500,
+      "p_stock": 40,
+      "p_image": "https://images.pexels.com/photos/5503227/pexels-photo-5503227.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Soft Medjool dates, naturally sweet and energy-boosting."
+    },
+    {
+      "id": "H107",
+      "p_name": "Dried Apricots",
+      "p_price": 420,
+      "p_stock": 35,
+      "p_image": "https://images.pexels.com/photos/4198937/pexels-photo-4198937.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Tangy and sweet dried apricots rich in iron and fiber."
+    },
+    {
+      "id": "H108",
+      "p_name": "Dried Figs",
+      "p_price": 600,
+      "p_stock": 22,
+      "p_image": "https://images.pexels.com/photos/5946970/pexels-photo-5946970.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Naturally dried figs with a rich, honey-like sweetness."
+    },
+    {
+      "id": "H109",
+      "p_name": "Mixed Dry Fruits",
+      "p_price": 1200,
+      "p_stock": 18,
+      "p_image": "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Premium mix of almonds, cashews, raisins, and pistachios."
+    },
+    {
+      "id": "H110",
+      "p_name": "Peanuts",
+      "p_price": 150,
+      "p_stock": 100,
+      "p_image": "https://images.pexels.com/photos/4110252/pexels-photo-4110252.jpeg",
+      "p_category": "Dry Fruits",
+      "p_description": "Roasted peanuts, a budget-friendly and protein-rich snack."
+    },
+    {
+      "id": "H111",
+      "p_name": "Basmati Rice",
+      "p_price": 250,
+      "p_stock": 80,
+      "p_image": "https://images.pexels.com/photos/4110254/pexels-photo-4110254.jpeg",
+      "p_category": "Grains",
+      "p_description": "Long-grain aromatic Basmati rice for perfect biryani."
+    },
+    {
+      "id": "H112",
+      "p_name": "Brown Rice",
+      "p_price": 220,
+      "p_stock": 60,
+      "p_image": "https://images.pexels.com/photos/4110255/pexels-photo-4110255.jpeg",
+      "p_category": "Grains",
+      "p_description": "Whole grain brown rice, high in fiber and nutrients."
+    },
+    {
+      "id": "H113",
+      "p_name": "Quinoa",
+      "p_price": 650,
+      "p_stock": 30,
+      "p_image": "https://images.pexels.com/photos/7421234/pexels-photo-7421234.jpeg",
+      "p_category": "Grains",
+      "p_description": "Superfood quinoa, complete protein for a healthy diet."
+    },
+    {
+      "id": "H114",
+      "p_name": "Rolled Oats",
+      "p_price": 180,
+      "p_stock": 70,
+      "p_image": "https://images.pexels.com/photos/9414233/pexels-photo-9414233.jpeg",
+      "p_category": "Grains",
+      "p_description": "Heart-healthy rolled oats for a nutritious breakfast."
+    },
+    {
+      "id": "H115",
+      "p_name": "Chia Seeds",
+      "p_price": 480,
+      "p_stock": 45,
+      "p_image": "https://images.pexels.com/photos/4198936/pexels-photo-4198936.jpeg",
+      "p_category": "Seeds",
+      "p_description": "Tiny but mighty chia seeds loaded with omega-3 and fiber."
+    },
+    {
+      "id": "H116",
+      "p_name": "Flax Seeds",
+      "p_price": 200,
+      "p_stock": 55,
+      "p_image": "https://images.pexels.com/photos/6542793/pexels-photo-6542793.jpeg",
+      "p_category": "Seeds",
+      "p_description": "Nutritious flax seeds, excellent source of lignans and fiber."
+    },
+    {
+      "id": "H117",
+      "p_name": "Sunflower Seeds",
+      "p_price": 180,
+      "p_stock": 65,
+      "p_image": "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg",
+      "p_category": "Seeds",
+      "p_description": "Roasted sunflower seeds, vitamin E rich crunchy snack."
+    },
+    {
+      "id": "H118",
+      "p_name": "Pumpkin Seeds",
+      "p_price": 350,
+      "p_stock": 40,
+      "p_image": "https://images.pexels.com/photos/5945599/pexels-photo-5945599.jpeg",
+      "p_category": "Seeds",
+      "p_description": "Toasted pumpkin seeds, rich in magnesium and zinc."
+    },
+    {
+      "id": "H119",
+      "p_name": "Honey",
+      "p_price": 550,
+      "p_stock": 30,
+      "p_image": "https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg",
+      "p_category": "Natural Sweeteners",
+      "p_description": "Pure raw honey, naturally antibacterial and delicious."
+    },
+    {
+      "id": "H120",
+      "p_name": "Coconut Sugar",
+      "p_price": 400,
+      "p_stock": 35,
+      "p_image": "https://images.pexels.com/photos/5945560/pexels-photo-5945560.jpeg",
+      "p_category": "Natural Sweeteners",
+      "p_description": "Low glycemic coconut sugar, a healthier sugar alternative."
+    },
+    {
+      "id": "H121",
+      "p_name": "Apple",
+      "p_price": 120,
+      "p_stock": 100,
+      "p_image": "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg",
+      "p_category": "Fruits",
+      "p_description": "Fresh and crunchy red apples, rich in antioxidants."
+    },
+    {
+      "id": "H122",
+      "p_name": "Banana",
+      "p_price": 60,
+      "p_stock": 120,
+      "p_image": "https://images.pexels.com/photos/1093038/pexels-photo-1093038.jpeg",
+      "p_category": "Fruits",
+      "p_description": "Ripe and sweet bananas, a great source of potassium."
+    },
+    {
+      "id": "H123",
+      "p_name": "Orange",
+      "p_price": 90,
+      "p_stock": 80,
+      "p_image": "https://images.pexels.com/photos/327098/pexels-photo-327098.jpeg",
+      "p_category": "Fruits",
+      "p_description": "Juicy oranges bursting with vitamin C goodness."
+    },
+    {
+      "id": "H124",
+      "p_name": "Mango",
+      "p_price": 200,
+      "p_stock": 50,
+      "p_image": "https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg",
+      "p_category": "Fruits",
+      "p_description": "King of fruits – sweet Alphonso mangoes at their best."
+    },
+    {
+      "id": "H125",
+      "p_name": "Strawberries",
+      "p_price": 250,
+      "p_stock": 40,
+      "p_image": "https://images.pexels.com/photos/70746/strawberries-red-fruit-royalty-free-70746.jpeg",
+      "p_category": "Fruits",
+      "p_description": "Fresh strawberries, perfect for smoothies and desserts."
+    },
+    {
+      "id": "H126",
+      "p_name": "Grapes",
+      "p_price": 180,
+      "p_stock": 55,
+      "p_image": "https://images.pexels.com/photos/60021/grapes-wine-blue-fruit-60021.jpeg",
+      "p_category": "Fruits",
+      "p_description": "Fresh seedless green grapes, naturally sweet and juicy."
+    },
+    {
+      "id": "H127",
+      "p_name": "Pomegranate",
+      "p_price": 160,
+      "p_stock": 45,
+      "p_image": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg",
+      "p_category": "Fruits",
+      "p_description": "Antioxidant-rich pomegranate with ruby red arils."
+    },
+    {
+      "id": "H128",
+      "p_name": "Tomato",
+      "p_price": 50,
+      "p_stock": 150,
+      "p_image": "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Farm fresh tomatoes, essential for every Indian kitchen."
+    },
+    {
+      "id": "H129",
+      "p_name": "Onion",
+      "p_price": 40,
+      "p_stock": 200,
+      "p_image": "https://images.pexels.com/photos/4197447/pexels-photo-4197447.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Fresh red onions, a staple ingredient in Indian cooking."
+    },
+    {
+      "id": "H130",
+      "p_name": "Garlic",
+      "p_price": 80,
+      "p_stock": 100,
+      "p_image": "https://images.pexels.com/photos/1460279/pexels-photo-1460279.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Fresh garlic cloves with strong aroma and flavor."
+    },
+    {
+      "id": "H131",
+      "p_name": "Ginger",
+      "p_price": 70,
+      "p_stock": 90,
+      "p_image": "https://images.pexels.com/photos/906150/pexels-photo-906150.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Fresh ginger root, great for cooking and immunity boost."
+    },
+    {
+      "id": "H132",
+      "p_name": "Spinach",
+      "p_price": 35,
+      "p_stock": 80,
+      "p_image": "https://images.pexels.com/photos/2325843/pexels-photo-2325843.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Tender baby spinach leaves, iron-rich and nutritious."
+    },
+    {
+      "id": "H133",
+      "p_name": "Broccoli",
+      "p_price": 120,
+      "p_stock": 60,
+      "p_image": "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Fresh broccoli florets, packed with vitamins and minerals."
+    },
+    {
+      "id": "H134",
+      "p_name": "Carrot",
+      "p_price": 55,
+      "p_stock": 110,
+      "p_image": "https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Crunchy orange carrots rich in beta-carotene and vitamin A."
+    },
+    {
+      "id": "H135",
+      "p_name": "Bell Pepper",
+      "p_price": 100,
+      "p_stock": 70,
+      "p_image": "https://images.pexels.com/photos/1373916/pexels-photo-1373916.jpeg",
+      "p_category": "Vegetables",
+      "p_description": "Colorful bell peppers, sweet and crunchy for stir-fries."
+    },
+    {
+      "id": "H136",
+      "p_name": "Turmeric Powder",
+      "p_price": 120,
+      "p_stock": 75,
+      "p_image": "https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg",
+      "p_category": "Spices",
+      "p_description": "Pure turmeric powder with anti-inflammatory curcumin."
+    },
+    {
+      "id": "H137",
+      "p_name": "Red Chilli Powder",
+      "p_price": 90,
+      "p_stock": 85,
+      "p_image": "https://images.pexels.com/photos/4198868/pexels-photo-4198868.jpeg",
+      "p_category": "Spices",
+      "p_description": "Vibrant red chilli powder for fiery Indian dishes."
+    },
+    {
+      "id": "H138",
+      "p_name": "Cumin Seeds",
+      "p_price": 110,
+      "p_stock": 65,
+      "p_image": "https://images.pexels.com/photos/6157065/pexels-photo-6157065.jpeg",
+      "p_category": "Spices",
+      "p_description": "Aromatic cumin seeds, essential for tempering and spice blends."
+    },
+    {
+      "id": "H139",
+      "p_name": "Coriander Powder",
+      "p_price": 85,
+      "p_stock": 70,
+      "p_image": "https://images.pexels.com/photos/6157048/pexels-photo-6157048.jpeg",
+      "p_category": "Spices",
+      "p_description": "Freshly ground coriander powder for rich curries."
+    },
+    {
+      "id": "H140",
+      "p_name": "Garam Masala",
+      "p_price": 150,
+      "p_stock": 60,
+      "p_image": "https://images.pexels.com/photos/2802522/pexels-photo-2802522.jpeg",
+      "p_category": "Spices",
+      "p_description": "Aromatic blend of warm spices for authentic Indian flavor."
+    },
+    {
+      "id": "H141",
+      "p_name": "Mustard Seeds",
+      "p_price": 70,
+      "p_stock": 90,
+      "p_image": "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg",
+      "p_category": "Spices",
+      "p_description": "Small black mustard seeds, perfect for tempering."
+    },
+    {
+      "id": "H142",
+      "p_name": "Black Pepper",
+      "p_price": 200,
+      "p_stock": 55,
+      "p_image": "https://images.pexels.com/photos/4198741/pexels-photo-4198741.jpeg",
+      "p_category": "Spices",
+      "p_description": "Whole black peppercorns with intense pungent flavor."
+    },
+    {
+      "id": "H143",
+      "p_name": "Olive Oil",
+      "p_price": 750,
+      "p_stock": 30,
+      "p_image": "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking.jpg",
+      "p_category": "Oils",
+      "p_description": "Extra virgin olive oil, cold-pressed and heart-healthy."
+    },
+    {
+      "id": "H144",
+      "p_name": "Coconut Oil",
+      "p_price": 450,
+      "p_stock": 40,
+      "p_image": "https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg",
+      "p_category": "Oils",
+      "p_description": "Pure cold-pressed coconut oil for cooking and skincare."
+    },
+    {
+      "id": "H145",
+      "p_name": "Toor Dal",
+      "p_price": 180,
+      "p_stock": 90,
+      "p_image": "https://images.pexels.com/photos/6545796/pexels-photo-6545796.jpeg",
+      "p_category": "Pulses",
+      "p_description": "Split pigeon peas, a staple for dal tadka and sambar."
+    },
+    {
+      "id": "H146",
+      "p_name": "Moong Dal",
+      "p_price": 160,
+      "p_stock": 85,
+      "p_image": "https://images.pexels.com/photos/6545790/pexels-photo-6545790.jpeg",
+      "p_category": "Pulses",
+      "p_description": "Yellow moong dal, light and easy to digest."
+    },
+    {
+      "id": "H147",
+      "p_name": "Chickpeas",
+      "p_price": 140,
+      "p_stock": 95,
+      "p_image": "https://images.pexels.com/photos/6545756/pexels-photo-6545756.jpeg",
+      "p_category": "Pulses",
+      "p_description": "Dried chickpeas (chana), protein-rich legume for curries."
+    },
+    {
+      "id": "H148",
+      "p_name": "Masoor Dal",
+      "p_price": 130,
+      "p_stock": 100,
+      "p_image": "https://images.pexels.com/photos/6545754/pexels-photo-6545754.jpeg",
+      "p_category": "Pulses",
+      "p_description": "Red lentils that cook quickly and make a delicious dal."
+    },
+    {
+      "id": "H149",
+      "p_name": "Green Tea",
+      "p_price": 320,
+      "p_stock": 50,
+      "p_image": "https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg",
+      "p_category": "Beverages",
+      "p_description": "Premium green tea bags, antioxidant-rich and refreshing."
+    },
+    {
+      "id": "H150",
+      "p_name": "Whey Protein",
+      "p_price": 2200,
+      "p_stock": 20,
+      "p_image": "https://images.pexels.com/photos/3621232/pexels-photo-3621232.jpeg",
+      "p_category": "Supplements",
+      "p_description": "High-quality whey protein isolate for muscle recovery."
     }
   ],
+  "cart": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
