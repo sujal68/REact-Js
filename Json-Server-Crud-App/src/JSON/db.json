@@ -451,6 +451,16 @@
       "p_description": "High-quality whey protein isolate for muscle recovery."
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "productId": "H101",
+      "p_name": "Almonds",
+      "p_price": 800,
+      "p_image": "https://images.pexels.com/photos/9974501/pexels-photo-9974501.jpeg",
+      "p_category": "Dry Fruits",
+      "quantity": 1,
+      "id": "IehV9_MA8Mg"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
